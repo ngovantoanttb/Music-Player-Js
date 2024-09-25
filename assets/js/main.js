@@ -200,8 +200,9 @@ const app = {
 
             if (_this.isRandom) {
                 _this.playRandomSong();
+                _this.loadCurrentSong()
                 repeatBtn.classList.remove('active')
-                audio.play();
+                audio.play()
             }
         }
 
@@ -210,7 +211,7 @@ const app = {
             _this.isRepeat = !_this.isRepeat
             _this.setConfig('isRepeat', _this.isRepeat)
             repeatBtn.classList.toggle('active', _this.isRepeat)
-            randomBtn.classList.remove('active')
+            randomBtn.classList.remove('active', _this.isRandom)
         }
 
         // When song ends
@@ -219,6 +220,7 @@ const app = {
                 audio.play();
             } else if (_this.isRandom) {
                 _this.playRandomSong();
+                audio.play()
             } else {
                 _this.nextsong();
             }
@@ -291,6 +293,7 @@ const app = {
         while (newIndex === this.curentIndex)
         this.currentIndex = newIndex
         this.loadCurrentSong()
+        this.render()
 
     },
 
