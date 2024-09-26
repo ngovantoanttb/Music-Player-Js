@@ -347,18 +347,32 @@ const app = {
 
     },
 
+    sortSongsByName: function () {
+        this.songs.sort((a, b) => {
+            const nameA = this.removeAccents(a.name.toUpperCase()); // Chuẩn hóa và chuyển tên thành chữ hoa
+            const nameB = this.removeAccents(b.name.toUpperCase());
+            if (nameA < nameB) {
+                return -1;
+            }
+            if (nameA > nameB) {
+                return 1;
+            }
+            return 0;
+        });
+    },
+
+
     start: function () {
+        //Sắp xếp playlist
+        this.sortSongsByName();
         //Gan cau hinh tu config vao app
         this.loadConfig()
         //định nghĩa các thuộc tính cho object
         this.defineProperties()
-
         //lắng nghe và xử lý các sự kiện (DOM events)
         this.handleEvents()
-
         //upload info first song when run app 
         this.loadCurrentSong()
-
         //Render playlist
         this.render()
     }
