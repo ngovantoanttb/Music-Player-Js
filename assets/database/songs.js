@@ -2,7 +2,7 @@ export default {
     songs: [{
             name: 'Ải hồng nhan ',
             singer: 'Cần Vinh & Lee Ken',
-            path: 'assets/music/aihongnhan.mp3',
+            path: 'https://github.com/ngovantoanttb/Music-Player-Js/blob/c3a42990005b722c64768953d57d0c39db53e7b0/assets/music/aihongnhan.mp3',
             image: '/assets/img/aihongnhan.jpg'
         },
         {
