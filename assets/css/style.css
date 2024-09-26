@@ -252,11 +252,57 @@ header h2 {
 
 .song .author {
     font-size: 12px;
-    color: #999;
+    color: #5a5a5a;
 }
 
 .song .option {
     padding: 16px 8px;
     color: #999;
     font-size: 18px;
+}
+
+.footer {
+    text-align: center;
+    padding: 12px 0;
+    background-color: #d7d7d7;
+}
+
+.footer__about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2px;
+}
+
+.footer__text {
+    font-size: 12px;
+    color: var(--white-color);
+    letter-spacing: 3px;
+}
+
+.footer__social {
+    font-size: 20px;
+}
+.footer__img {
+    --size: 18px;
+    width: var(--size);
+    height: var(--size);
+    margin-left: 8px;
+}
+
+.footer__social-link {
+    text-decoration: none;
+    padding: 11px;
+    margin: 0px 12px;
+    display: inline-block;
+    color: var(--text-color);
+}
+
+.footer__social-link:hover {
+    opacity: 0.6;
+}
+
+.footer__social-icon {
+    color: var(--white-color);
+    font-size: 2.3rem;
 }
