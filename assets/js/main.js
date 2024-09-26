@@ -238,6 +238,7 @@ const app = {
                 audio.play()
             } else {
                 _this.nextsong();
+                audio.play()
             }
         };
 
