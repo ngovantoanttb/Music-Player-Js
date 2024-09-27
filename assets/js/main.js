@@ -1,5 +1,4 @@
-// Một số bài hát có thể bị lỗi do liên kết bị hỏng. Vui lòng thay thế liên kết khác để có thể phát
-// Some songs may be faulty due to broken links. Please replace another link so that it can be played
+
 import data from "../database/songs.js"
 
 const $ = document.querySelector.bind(document)
@@ -17,7 +16,6 @@ const prevBtn = $('.btn-prev')
 const randomBtn = $('.btn-random')
 const repeatBtn = $('.btn-repeat')
 const playlist = $('.playlist')
-
 const cd = $('.cd')
 
 // SEARCH
@@ -87,7 +85,7 @@ const app = {
         const cdWidth = cd.offsetWidth
         const _this = this
 
-        //Xu ly CD quay
+        //Xử lý CD quay
         const cdThumbAnimate = cdThumb.animate([{
             transform: 'rotate(360deg)'
         }], {
@@ -97,7 +95,7 @@ const app = {
         cdThumbAnimate.pause()
 
 
-        //Xu ly CD
+        //Xử lý CD 
         document.onscroll = function () {
             const scrollTop = window.scrollY || document.documentElement.scrollTop
             const newCdWidth = cdWidth - scrollTop
@@ -106,7 +104,7 @@ const app = {
             cd.style.opacity = newCdWidth / cdWidth
         }
 
-        //Tim kiem
+        //Tìm kiếm
         searchBox.onclick = function () {
             searchSongs.style.display = 'block'
             searchInput.setAttribute('style', 'border-bottom-right-radius: 0; border-bottom-left-radius: 0')
@@ -149,7 +147,7 @@ const app = {
         }
 
 
-        //Xu ly click play
+        //Xử lý khi ấn play
         playBtn.onclick = function () {
             if (_this.isPlaying) {
                 audio.pause()
@@ -158,21 +156,21 @@ const app = {
             }
         }
 
-        //When Play song
+        //Xử lý khi nhạc chạy
         audio.onplay = function () {
             _this.isPlaying = true
             player.classList.add('playing')
             cdThumbAnimate.play()
         }
 
-        //When Pause song
+        //Xử lý khi ấn dừng
         audio.onpause = function () {
             _this.isPlaying = false
             player.classList.remove('playing')
             cdThumbAnimate.pause()
         }
 
-        //Tien do bai hat thay doi
+        //Tiến độ bài hát thay đổi
         audio.ontimeupdate = function () {
             if (audio.duration) {
                 // Percent of progress
@@ -183,13 +181,13 @@ const app = {
             }
         }
 
-        //Xu ly tua 
+        //Xử lý khi tua nhạc
         progress.onchange = function (e) {
             const seekTime = audio.duration / 100 * e.target.value
             audio.currentTime = seekTime
         }
 
-        //Next song
+        //Chuyển tiếp bài hát
         nextBtn.onclick = function () {
             if (_this.isRandom) {
                 _this.playRandomSong()
@@ -201,7 +199,7 @@ const app = {
             _this.scrollToActiveSong()
         }
 
-        //Prev Song
+        //Trở lại bài hát trước
         prevBtn.onclick = function () {
             if (_this.isRandom) {
                 _this.playRandomSong()
@@ -212,7 +210,7 @@ const app = {
             _this.render()
         }
 
-        //Random song
+        //Phát ngẫu nhiên bài hát
         randomBtn.onclick = function () {
 
             _this.isRandom = !_this.isRandom
@@ -229,7 +227,7 @@ const app = {
             randomBtn.classList.remove('active', _this.isRandom)
         }
 
-        // When song ends
+        //Xử lý khi bài hát kết thúc
         audio.onended = function () {
             if (_this.isRepeat) {
                 audio.play();
@@ -242,7 +240,7 @@ const app = {
             }
         };
 
-        //Lang nghe click vao playlist
+        //Lắng nghe click vào playlist 
         playlist.onclick = function (e) {
             const songNode = e.target.closest('.song:not(.active)')
             const songOption = e.target.closest('.option')
@@ -263,7 +261,7 @@ const app = {
             }
         }
     },
-
+    //Cuộn tới vị trí bài hát đang phát
     scrollToActiveSong: function () {
         setTimeout(() => {
             $('.playlist .song.active').scrollIntoView({
@@ -280,7 +278,7 @@ const app = {
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`
         audio.src = this.currentSong.path
 
-        // Add active class to Current Song on playlist and Favorite
+        //Thêm active cho bài hát trong playlist
         const activeSongs = $$('.song.active')
         const currentActiveSongs = $$(`.song[data-index= "${this.currentIndex}"]`)
         currentActiveSongs.forEach(activeSong => {
@@ -294,7 +292,7 @@ const app = {
 
         // Lưu bài hát hiện tại vào localStorage
         this.setConfig('currentSongIndex', this.currentIndex)
-        // scroll to current song
+        // Cuộn tới bài hát
         this.scrollToActiveSong()
     },
 
@@ -349,7 +347,7 @@ const app = {
 
     sortSongsByName: function () {
         this.songs.sort((a, b) => {
-            const nameA = this.removeAccents(a.name.toUpperCase()); // Chuẩn hóa và chuyển tên thành chữ hoa
+            const nameA = this.removeAccents(a.name.toUpperCase());
             const nameB = this.removeAccents(b.name.toUpperCase());
             if (nameA < nameB) {
                 return -1;
