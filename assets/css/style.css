@@ -1,6 +1,7 @@
 :root {
     --primary-color: #ecbf1f;
     --text-color: #333;
+    --search-color: rgb(255, 39, 39);
 }
 
 * {
@@ -211,7 +212,7 @@ header h2 {
 /* PLAYLIST */
 
 .playlist {
-    margin-top: 434px;
+    margin-top: 438px;
     padding: 12px;
 }
 
@@ -236,7 +237,7 @@ header h2 {
 .song.active .option,
 .song.active .author,
 .song.active .title {
-    color: (--text-color);
+    color: var(--search-color);
 }
 
 
