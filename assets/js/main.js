@@ -163,7 +163,7 @@ const app = {
             cdThumbAnimate.play()
         }
 
-        //Xử lý khi ấn dừng
+        //Xử lý khi nhạc dừng
         audio.onpause = function () {
             _this.isPlaying = false
             player.classList.remove('playing')
