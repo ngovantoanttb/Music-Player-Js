@@ -361,16 +361,16 @@ const app = {
 
 
     start: function () {
-        //Sắp xếp playlist
-        this.sortSongsByName();
-        //Gan cau hinh tu config vao app
-        this.loadConfig()
-        //định nghĩa các thuộc tính cho object
+        //Định nghĩa các thuộc tính cho object
         this.defineProperties()
+        //Gắn cấu hình từ config vào app
+        this.loadConfig()
         //lắng nghe và xử lý các sự kiện (DOM events)
         this.handleEvents()
-        //upload info first song when run app 
+        //load thông tin bài hát đầu tiên
         this.loadCurrentSong()
+        //Sắp xếp playlist
+        this.sortSongsByName();
         //Render playlist
         this.render()
     }
