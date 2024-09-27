@@ -37,7 +37,7 @@ export default {
         },
         {
             name: 'Giang hải không độ nàng',
-            singer: 'Không xác định',
+            singer: '',
             path: 'assets/music/gianghai.mp3',
             image: 'assets/img/gianghai.jpg'
         },

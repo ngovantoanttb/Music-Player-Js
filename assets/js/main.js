@@ -45,6 +45,7 @@ const app = {
 
     render: function () {
         const htmls = this.songs.map((song, index) => {
+            const authorName = song.singer ? song.singer : "Không xác định";
             return `
             <div class="song-node">
                 <div class="song ${index === this.currentIndex ? 'active' : ''}" data-index="${index}">
@@ -53,7 +54,7 @@ const app = {
                     </div>
                     <div class="body">
                         <h3 class="title">${song.name}</h3>
-                        <p class="author">${song.singer}</p>
+                        <p class="author">${authorName}</p>
                     </div>
                     <div class="option">
                         <i class="fas fa-ellipsis-v"></i>
@@ -283,7 +284,7 @@ const app = {
 
             //click in song option
             if (songOption) {
-
+                
             }
         }
     },
