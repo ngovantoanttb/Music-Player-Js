@@ -392,12 +392,13 @@ const app = {
         this.defineProperties()
         //Gắn cấu hình từ config vào app
         this.loadConfig()
+        //Sắp xếp playlist
+        this.sortSongsByName();
+        this.currentIndex = 0
         //lắng nghe và xử lý các sự kiện (DOM events)
         this.handleEvents()
         //load thông tin bài hát đầu tiên
         this.loadCurrentSong()
-        //Sắp xếp playlist
-        this.sortSongsByName();
         //Render playlist
         this.render()
     }
