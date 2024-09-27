@@ -182,10 +182,36 @@ const app = {
         }
 
         //Xử lý khi tua nhạc
-        progress.onchange = function (e) {
-            const seekTime = audio.duration / 100 * e.target.value
-            audio.currentTime = seekTime
-        }
+        let isSeeking = false;
+        let seekTimeout;
+
+        // Cập nhật xử lý tìm kiếm
+        progress.oninput = function (e) {
+            // Xóa timeout trước đó nếu nó vẫn còn hoạt động
+            clearTimeout(seekTimeout);
+
+            // Đặt trạng thái đang tua
+            isSeeking = true;
+
+            const seekValue = e.target.value;
+            const seekTime = audio.duration / 100 * seekValue;
+
+            // Cập nhật audio.currentTime chỉ sau khi người dùng dừng kéo thanh trượt
+            seekTimeout = setTimeout(() => {
+                audio.currentTime = seekTime;
+                isSeeking = false;
+            }, 200); 
+        };
+
+        // Cập nhật tiến trình khi bài hát đang phát
+        audio.ontimeupdate = function () {
+            if (audio.duration && !isSeeking) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progress.value = progressPercent;
+                app.setConfig('songCurrentTime', audio.currentTime);
+                app.setConfig('songProgressValue', progress.value);
+            }
+        };
 
         //Chuyển tiếp bài hát
         nextBtn.onclick = function () {
