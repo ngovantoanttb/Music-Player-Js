@@ -45,6 +45,14 @@ html {
     max-width: 480px;
     border-bottom: 1px solid #ebebeb;
 }
+
+input[type="text"],
+input[type="search"] {
+    font-size: 16px;
+    /* Tắt tự động điều chỉnh kích thước phông chữ */
+    -webkit-text-size-adjust: 100%;
+}
+
 /* SEARCH */
 .search-box {
     position: relative;
