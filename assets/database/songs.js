@@ -60,6 +60,12 @@ export default {
             image: 'assets/img/song2.jpg'
         },
         {
+            name: 'Ngàn nỗi nhớ gửi đến em',
+            singer: 'The Men',
+            path: 'assets/music/song3.mp3',
+            image: 'assets/music/song3.jpg'
+        },
+        {
             name: 'Tiếng pháo tiễn người',
             singer: 'Hùng Quân',
             path: 'assets/music/song4.mp3',
