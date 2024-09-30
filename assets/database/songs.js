@@ -63,7 +63,7 @@ export default {
             name: 'Ngàn nỗi nhớ gửi đến em',
             singer: 'The Men',
             path: 'assets/music/song3.mp3',
-            image: 'assets/music/song3.jpg'
+            image: 'assets/img/song3.jpg'
         },
         {
             name: 'Tiếng pháo tiễn người',
@@ -101,6 +101,6 @@ export default {
 // {
 //     name: '',
 //     singer: '',
-//     path: '',
-//     image: ''
+//     path: 'assets/img/.mp3',
+//     image: 'assets/img/.jpg'
 // },
