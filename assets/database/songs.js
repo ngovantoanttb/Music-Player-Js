@@ -95,6 +95,12 @@ export default {
             path: 'assets/music/song8.mp3',
             image: 'assets/img/song8.jpg'
         },
+        {
+            name: 'Sao phải khóc',
+            singer: 'Bảo Vân cover x MK Remix',
+            path: 'assets/music/song9.mp3',
+            image: 'assets/img/song9.jpg'
+        },
     ],
 }
 
